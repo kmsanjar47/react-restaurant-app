@@ -3,16 +3,17 @@ import React from "react";
 function MenuItemCard(props) {
   return (
     <div
-      style={{
-        margin: "16px 16px",
-        cursor: "pointer",
-        width: "25vw",
-        height: "60vh",
-        position: "relative",
-        borderRadius: "10px",
-        textAlign: "start",
-        padding: "8px",
-      }}
+      className="menuItemCard"
+      // style={{
+      //   margin: "16px 16px",
+      //   cursor: "pointer",
+      //   width: "25vw",
+      //   height: "60vh",
+      //   position: "relative",
+      //   borderRadius: "10px",
+      //   textAlign: "start",
+      //   padding: "8px",
+      // }}
       onClick={() => {
         props.onClick(props.item);
       }}

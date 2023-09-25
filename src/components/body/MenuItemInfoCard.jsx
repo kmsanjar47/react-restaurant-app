@@ -6,7 +6,7 @@ let MenuItemInfoCard = (props) => {
       style={{
         margin: "16px 16px",
         cursor: "pointer",
-        width: "100vw",
+        width: "100%",
         height: "60vh",
         position: "sticky",
         top: "10px",
@@ -18,15 +18,13 @@ let MenuItemInfoCard = (props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        padding: "16px",
       }}
     >
       <div>
         <img
           style={{
-            position: "absolute",
             objectFit: "cover",
-            height: "40%",
+            height: "30vh",
             width: "100%",
           }}
           src={props.selectedItem.image}
