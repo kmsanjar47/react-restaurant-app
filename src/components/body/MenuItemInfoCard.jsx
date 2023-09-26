@@ -4,20 +4,19 @@ let MenuItemInfoCard = (props) => {
   return (
     <div
       style={{
-        margin: "16px 16px",
-        cursor: "pointer",
-        width: "100%",
-        height: "60vh",
-        position: "sticky",
-        top: "10px",
-        borderRadius: "10px",
+        // margin: "16px 16px",
+        // width: "100%",
+        // height: "60vh",
+        position: "relative",
+        // top: "10px",
+        // borderRadius: "10px",
         textAlign: "start",
-        padding: "8px",
+        // padding: "8px",
         backgroundColor: "white",
-        boxShadow: "5px 5px 16px grey",
+        // boxShadow: "5px 5px 16px grey",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "space-evenly",
       }}
     >
       <div>
@@ -28,7 +27,7 @@ let MenuItemInfoCard = (props) => {
             width: "100%",
           }}
           src={props.selectedItem.image}
-          alt="image"
+          alt="imag"
         />
       </div>
 

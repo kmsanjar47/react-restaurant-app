@@ -1,39 +1,20 @@
-import React, { useState } from "react";
-import MenuItemCard from "./MenuItemCard";
-import DISHES from "../dishes";
-import MenuItemInfoCard from "./MenuItemInfoCard";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Menu from "./views/Menu";
+import { Routes, Route } from "react-router-dom";
+import Home from "./views/Home";
+import Contact from "./views/Contact";
+import About from "./views/About";
 
 const Body = () => {
-  let [menuData] = useState(DISHES);
-  let [selectedItem, setSelectedItem] = useState(null);
-
-  let onItemSelect = (item) => {
-    setSelectedItem(item);
-  };
-  const menuItems = menuData.map((menu) => {
-    return (
-      <MenuItemCard
-        key={menu.id}
-        id={menu.id}
-        imageUrl={menu.image}
-        description={menu.description}
-        label={menu.label}
-        name={menu.name}
-        item={menu}
-        onClick={onItemSelect}
-      />
-    );
-  });
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        padding: "0px 50px",
-      }}
-    >
-      <div>{menuItems}</div>
-      {selectedItem ? <MenuItemInfoCard selectedItem={selectedItem} /> : ""}
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </div>
   );
 };

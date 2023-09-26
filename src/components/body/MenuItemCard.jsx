@@ -4,16 +4,15 @@ function MenuItemCard(props) {
   return (
     <div
       className="menuItemCard"
-      // style={{
-      //   margin: "16px 16px",
-      //   cursor: "pointer",
-      //   width: "25vw",
-      //   height: "60vh",
-      //   position: "relative",
-      //   borderRadius: "10px",
-      //   textAlign: "start",
-      //   padding: "8px",
-      // }}
+      style={{
+        margin: "1.4450867052023122vh 1.4450867052023122vw",
+        cursor: "pointer",
+        width: "20vw",
+        height: "50vh",
+        position: "relative",
+        borderRadius: "10px",
+        textAlign: "start",
+      }}
       onClick={() => {
         props.onClick(props.item);
       }}
@@ -33,10 +32,11 @@ function MenuItemCard(props) {
       <h4
         style={{
           position: "absolute",
-          marginLeft: "16px",
+          marginLeft: "1.1782032400589102vw",
+          marginTop: "2.3121387283236996vh",
           color: "black",
           fontWeight: "bold",
-          fontSize: "24px",
+          fontSize: "1.7673048600883652vw",
         }}
       >
         {props.name}
