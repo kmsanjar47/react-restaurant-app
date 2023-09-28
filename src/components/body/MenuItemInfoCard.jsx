@@ -1,6 +1,16 @@
 import React from "react";
 
 let MenuItemInfoCard = (props) => {
+  const commentsCard = props.comments.map((comment) => {
+    return (
+      <div key={comment.id}>
+        <h4>{comment.rating}</h4>
+        <h4>{comment.author}</h4>
+        <h4>{comment.comment}</h4>
+        <h4>{comment.date}</h4>
+      </div>
+    );
+  });
   return (
     <div
       style={{
@@ -36,6 +46,7 @@ let MenuItemInfoCard = (props) => {
         <p>{props.selectedItem.description}</p>
         <h2>{props.selectedItem.price + "Tk"}</h2>
       </div>
+      <div>{commentsCard}</div>
     </div>
   );
 };

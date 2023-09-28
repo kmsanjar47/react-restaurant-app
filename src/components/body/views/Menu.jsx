@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import MenuItemCard from "../MenuItemCard";
-import DISHES from "../../dishes";
+import DISHES from "../../../data/dishes";
 import MenuItemInfoCard from "../MenuItemInfoCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, ModalBody, Button, ModalFooter } from "reactstrap";
+import COMMENTS from "../../../data/comments";
 const Menu = () => {
+  document.title = "Menu";
   const [menuData] = useState(DISHES);
   const [selectedItem, setSelectedItem] = useState(null);
   const [modalState, setModalState] = useState(false);
+  const [commentsData] = useState(COMMENTS);
 
   let toggleModal = () => {
     setModalState(!modalState);
@@ -31,6 +34,12 @@ const Menu = () => {
       />
     );
   });
+
+  const filteredCommentsArray = commentsData.filter((comment) => {
+    if (selectedItem != null && selectedItem.id == comment.dishId) {
+      return comment;
+    }
+  });
   return (
     <div className="container">
       <div className="row">{menuItems}</div>
@@ -39,10 +48,13 @@ const Menu = () => {
           isOpen={modalState}
           toggle={toggleModal}
           centered={true}
-          fullscreen={"xl"}
+          fullscreen={true}
         >
           <ModalBody>
-            <MenuItemInfoCard selectedItem={selectedItem} />
+            <MenuItemInfoCard
+              selectedItem={selectedItem}
+              comments={filteredCommentsArray}
+            />
           </ModalBody>
           <ModalFooter>
             <Button color="success" onClick={toggleModal}>

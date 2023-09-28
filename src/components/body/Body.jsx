@@ -15,6 +15,7 @@ const Body = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      {/* <Navigate from="/" to="/home" /> */}
     </div>
   );
 };
