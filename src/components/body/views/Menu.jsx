@@ -1,26 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuItemCard from "../MenuItemCard";
-import DISHES from "../../../data/dishes";
 import MenuItemInfoCard from "../MenuItemInfoCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, ModalBody, Button, ModalFooter } from "reactstrap";
-import COMMENTS from "../../../data/comments";
-const Menu = () => {
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+    selectedItem: state.selectedItem,
+    modalState: state.modalState,
+  };
+};
+
+const Menu = ({ dispatch, dishes, comments, modalState, selectedItem }) => {
   document.title = "Menu";
-  const [menuData] = useState(DISHES);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [modalState, setModalState] = useState(false);
-  const [commentsData] = useState(COMMENTS);
 
   let toggleModal = () => {
-    setModalState(!modalState);
+    dispatch({
+      type: "MODAL_TOGGLE",
+      payload: { modalState: !modalState },
+    });
   };
 
   let onItemSelect = (item) => {
-    setSelectedItem(item);
+    dispatch({
+      type: "ITEM_SET",
+      payload: { selectedItem: item },
+    });
     toggleModal();
   };
-  const menuItems = menuData.map((menu) => {
+  const menuItems = dishes.map((menu) => {
     return (
       <MenuItemCard
         key={menu.id}
@@ -35,7 +46,7 @@ const Menu = () => {
     );
   });
 
-  const filteredCommentsArray = commentsData.filter((comment) => {
+  const filteredCommentsArray = comments.filter((comment) => {
     if (selectedItem != null && selectedItem.id == comment.dishId) {
       return comment;
     }
@@ -70,4 +81,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default connect(mapStateToProps)(Menu);
