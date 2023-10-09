@@ -1,4 +1,5 @@
 import React from "react";
+import CommentForm from "./CommentForm";
 
 let MenuItemInfoCard = (props) => {
   const commentsCard = props.comments.map((comment) => {
@@ -47,6 +48,7 @@ let MenuItemInfoCard = (props) => {
         <h2>{props.selectedItem.price + "Tk"}</h2>
       </div>
       <div>{commentsCard}</div>
+      <CommentForm />
     </div>
   );
 };
